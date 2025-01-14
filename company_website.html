@@ -1,0 +1,105 @@
+
+You are a web development assistant. Create a fake company website based on the following product metadata.
+
+Products:
+{% for idx, product in enumerate(products) %}
+{{ idx + 1 }}. Title: {{ product['title'] }}
+   Description: {{ product['description'][0] if product['description'] else '' }}
+   Features: {{ ', '.join(product['features']) if product['features'] else 'N/A' }}
+   Price: {{ product['price'] or 'Not available' }}
+   Rating: {{ product['average_rating'] }}
+   Reviews: {{ product['rating_number'] }}
+{% endfor %}
+
+The website should include:
+- A header with a creative company name that is related to the products input (e.g., "GPU World" for GPUs).
+- Navigation links: "About Us," "Products," and "Contact."
+- "About Us" section: Write an AI-generated description of the company based on the main category of the products (e.g., GPUs for gaming).
+- "Products" section: Include a table or cards displaying the product details (title, description, features, price, rating, and reviews).
+- "Contact" section: Generate placeholder contact information for the fake company.
+- Use proper HTML structure and tags. Keep the design simple but visually appealing with placeholder styling.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+       .header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+       .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+       .nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+       .container {
+            width: 80%;
+            margin: auto;
+        }
+       .product-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+       .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GPU World</h1>
+    </div>
+    <div class="nav">
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to GPU World, your premier destination for high-performance graphics processing units designed specifically for gamers and professionals alike. Our mission is to provide cutting-edge technology that enhances your digital experience, whether you're streaming, gaming, or creating.</p>
+        </section>
+        <section id="products">
+            <h2>Our Products</h2>
+            {% for idx, product in enumerate(products) %}
+            <div class="product-card">
+                <h3>{{ product['title'] }}</h3>
+                <p><strong>Description:</strong> {{ product['description'][0] if product['description'] else '' }}</p>
+                <p><strong>Features:</strong> {{ ', '.join(product['features']) if product['features'] else 'N/A' }}</p>
+                <p><strong>Price:</strong> {{ product['price'] or 'Not available' }}</p>
+                <p><strong>Rating:</strong> {{ product['average_rating'] }} stars</p>
+                <p><strong>Reviews:</strong> {{ product['rating_number'] }} reviews</p>
+            </div>
+            {% endfor %}
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@gpuworld.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+            <p>Address: 123 Tech Avenue, Cyber City, USA</p>
+        </section>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 GPU World. All rights reserved.</p>
+    </div>
+</body>
+</html>
+```
+This HTML template creates a basic structure for a company website focused on selling GPUs. It includes sections for about us,
