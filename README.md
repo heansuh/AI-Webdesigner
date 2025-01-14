@@ -16,8 +16,8 @@ Dataset was used from here: https://amazon-reviews-2023.github.io/
 ---
 
 # Output
-* The final output files are `product-placeholder.png`, 
-* `company_page.png` and `dynamic_company_website.png` are 
+* The final output files are `product-placeholder.png`, `logo-placeholder.png` and `company_page.html`.
+* `company_website.html` and `dynamic_company_website.html` were intermediate results which were to show that the generative AI model was not working as expected.
 
 ---
 # For more information
